@@ -15,7 +15,15 @@ export class BookService {
     return this.http.get<Book[]>(environment.bookstoreApi + 'books/');
   }
 
-  getBook(id: number): Observable<Book> {
-    return this.http.get<Book>('http://localhost:9000/api/books/' + id);
+  getBook(id: string): Observable<Book> {
+    return this.http.get<Book>(environment.bookstoreApi + 'books/' + id);
+  }
+
+  deleteBook(id: number): Observable<Book> {
+    return this.http.delete<Book>(environment.bookstoreApi + 'books/' + id);
+  }
+
+  postBook(book: Book): Observable<Book> {
+    return this.http.post<Book>(environment.bookstoreApi + 'books/', book);
   }
 }

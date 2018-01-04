@@ -1,5 +1,9 @@
-<h1>Books List!</h1>
+<div class="container">
+  <h1>Books List!</h1>
 
-<ul>
-  <li *ngFor="let book of books">{{book.Title}}, {{book.YearOfPrint}}</li>
-</ul>
+  <ul>
+    <li *ngFor="let book of books">
+      <a routerLink="/book/{{book.Id}}">{{book.Title}}, {{book.YearOfPrint}}</a>
+    </li>
+  </ul>
+</div>

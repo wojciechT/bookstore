@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Book} from '../book';
+import {BookService} from '../book.service';
+import {MessageService} from '../../message/message.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-book-details',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookDetailsComponent implements OnInit {
 
-  constructor() { }
+  book: Book;
 
-  ngOnInit() {
+  constructor(private bookService: BookService,
+              private messages: MessageService,
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.bookService.getBook(id).subscribe(value => this.book = value,
+      err => this.router.navigateByUrl(''));
+  }
+
+  deleteBook() {
+    this.bookService.deleteBook(this.book.Id)
+      .subscribe(resp => this.router.navigateByUrl(''));
+  }
 }

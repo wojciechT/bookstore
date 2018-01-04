@@ -1,5 +1,11 @@
-<div class="container">
-  <app-books-list></app-books-list>
+<nav class="container navbar navbar-default">
+  <ul class="navbar-nav nav">
+    <li class="navbar-nav"><a routerLink="/books">Book List</a></li>
+    <li class="navbar-nav"><a routerLink="/book/add">Add New Book</a></li>
+  </ul>
+</nav>
 
-  <app-message></app-message>
-</div>
+<router-outlet></router-outlet>
+
+<app-message></app-message>
+

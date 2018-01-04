@@ -1,3 +1,15 @@
-<p>
-  book-details works!
-</p>
+<div class="container" *ngIf="book">
+  <h2>{{book.Title}}, <i>{{book.YearOfPrint}}</i></h2>
+
+  <h3>{{book.Author.Name +' '+ book.Author.Surname}}</h3>
+
+  <div>{{book.Author.YearOfBirth | date: 'mediumDate'}}</div>
+  <div *ngIf="book.Author.IsModentAuthor" class="glyphicon glyphicon-star"></div>
+
+  <div>
+    <button class="btn btn-danger" (click)="deleteBook()">Delete Book</button>
+  </div>
+</div>
+<div class="container" *ngIf="!book">
+  <h1>Loading book details...</h1>
+</div>
