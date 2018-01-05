@@ -12,6 +12,9 @@ import {BookDetailsComponent} from './books/book-details/book-details.component'
 import {AppRoutingModule} from './/app-routing.module';
 import {AddBookComponent} from './books/add-book/add-book.component';
 import {FormsModule} from '@angular/forms';
+import { LoginComponent } from './security/login/login.component';
+import {AuthenticationService} from './security/authentication/authentication.service';
+import {AuthGuard} from './security/autorization/auth.guard';
 
 
 @NgModule({
@@ -20,7 +23,8 @@ import {FormsModule} from '@angular/forms';
     BooksListComponent,
     MessageComponent,
     BookDetailsComponent,
-    AddBookComponent
+    AddBookComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,7 @@ import {FormsModule} from '@angular/forms';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [BookService, MessageService],
+  providers: [BookService, MessageService, AuthenticationService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
