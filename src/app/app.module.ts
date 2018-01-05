@@ -12,6 +12,10 @@ import {BookDetailsComponent} from './books/book-details/book-details.component'
 import {AppRoutingModule} from './/app-routing.module';
 import {AddBookComponent} from './books/add-book/add-book.component';
 import {FormsModule} from '@angular/forms';
+import { LoginComponent } from './security/login/login.component';
+import {UserService} from './security/user.service';
+import {AuthenticationService} from './security/authentication/authentication.service';
+import { NavComponent } from './nav/nav/nav.component';
 
 
 @NgModule({
@@ -20,7 +24,9 @@ import {FormsModule} from '@angular/forms';
     BooksListComponent,
     MessageComponent,
     BookDetailsComponent,
-    AddBookComponent
+    AddBookComponent,
+    LoginComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +34,12 @@ import {FormsModule} from '@angular/forms';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [BookService, MessageService],
+  providers: [
+    BookService,
+    MessageService,
+    UserService,
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

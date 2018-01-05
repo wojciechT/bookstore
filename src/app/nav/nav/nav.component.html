@@ -1,0 +1,7 @@
+<nav *ngIf="userService.getCurrentUser()" class="container navbar navbar-default">
+  <ul class="navbar-nav nav">
+    <li class="navbar-nav"><a routerLink="/books">Book List</a></li>
+    <li class="navbar-nav"><a routerLink="/book/add">Add New Book</a></li>
+    <li class="navbar-nav"><button id="logoutButton" class="btn btn-link navbar-btn" (click)="logout()">Logout</button></li>
+  </ul>
+</nav>
